@@ -567,8 +567,25 @@ law
 <span class="sd">    ***</span>
 <span class="sd">    ****</span>
 <span class="sd">    *</span>
-<span class="sd">    </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># 1. convert input sequence to a list of star-strings e.g. [&#39;***&#39;, &#39;****&#39;, &#39;*&#39;]</span>
+    <span class="c1"># 2. join the list with newline &#39;\n&#39;</span>
+
+    <span class="c1">#star_list = []</span>
+    <span class="c1">#for n in sequence:</span>
+    <span class="c1">#    star_list.append(n * &#39;*&#39;)</span>
+
+    <span class="c1">#result = &#39;\n&#39;.join(star_list)</span>
+
+    <span class="c1"># Alt solution&gt; build up a string</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="s1">&#39;*&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="c1">#return result[0: -1]  # exclude the final character</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># exclude any leading or trailing &quot;white-space&quot;</span>
+    
     
     
 
@@ -578,7 +595,18 @@ law
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Example: the histogram of [3, 4, 1] is 
-None
+***
+****
+*
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#histogram = [3, 4, 1]</span>
+<span class="c1">#for n in histogram:</span>
+<span class="c1">#    print(n * &#39;*&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -599,20 +627,6 @@ None
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">calculated</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">([])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">assert</span> <span class="n">calculated</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">calculated</span><span class="si">=}</span><span class="s1"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">=}</span><span class="s1">&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">calculated</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;*</span><span class="se">\n</span><span class="s2">**&quot;</span>
-
-<span class="ne">AssertionError</span>: calculated=None != expected=&#39;&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="exercise-4">
@@ -626,10 +640,30 @@ None
 <span class="sd">    Input: text of type str</span>
 <span class="sd">    Output: dict that maps a character to a number count</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="c1">#if char in result: # does char exist in result as a key</span>
+        <span class="c1">#    result[char] = result[char] + 1</span>
+        <span class="c1">#else:</span>
+        <span class="c1">#    result[char] = 1</span>
+
+        <span class="c1"># result[char] = result.get(char, 0) + 1    </span>
+
+        <span class="n">result</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        
+
+    <span class="k">return</span> <span class="n">result</span>
     
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Example: Character count of &#39;ABBA&#39;: </span><span class="si">{</span><span class="n">character_count</span><span class="p">(</span><span class="s1">&#39;ABBA&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">Expected </span><span class="se">{{</span><span class="s2">&#39;A&#39;: 2, &#39;B&#39;: 2</span><span class="se">}}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Example: Character count of &#39;ABBA&#39;: {&#39;A&#39;: 2, &#39;B&#39;: 2} 
+Expected {&#39;A&#39;: 2, &#39;B&#39;: 2}
 </pre></div>
 </div>
 </div>
@@ -665,11 +699,36 @@ None
 <p>Use this in a function that takes a string and returns the encrypted representation</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="nb">chr</span><span class="p">(</span><span class="mi">66</span><span class="p">)</span>
+<span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;g&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">caesar_shift</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns an encrypted string by shifting input characters by n</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">encrypted_char</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="n">encrypted_char</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">caesar_shift</span><span class="p">(</span><span class="n">caesar_shift</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;hello&#39;
 </pre></div>
 </div>
 </div>
