@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Live lecture notes &#8212; My sample book</title>
+    <title>Installation &#8212; My sample book</title>
   
   
   
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '20060/lecture-notes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -172,7 +174,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../lecture-notes.html">
-                    Live lecture notes
+                    Installation
                 </a>
             </li>
         </ul>
@@ -360,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Live lecture notes</h1>
+    <h1>Installation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -370,12 +372,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac">Mac</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mac">Mac</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#header">Header</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subheader">Subheader</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-datatypes">Basic datatypes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical">Numerical</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
@@ -391,7 +395,11 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-csv-files">reading csv files</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -402,15 +410,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="live-lecture-notes">
-<h1>Live lecture notes<a class="headerlink" href="#live-lecture-notes" title="Link to this heading">#</a></h1>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Go to the download page <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a> and download the installer from your platform</p></li>
 </ul>
 <section id="mac">
-<h3>Mac<a class="headerlink" href="#mac" title="Link to this heading">#</a></h3>
+<h2>Mac<a class="headerlink" href="#mac" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The pkg installer for your processor (Intel/Arm) is easiest to handle</p></li>
 <li><p>It installs to /opt/miniconda3 and adds information to your shell startup-file .zshrc</p></li>
@@ -418,7 +424,7 @@ document.write(`
 </ul>
 </section>
 <section id="windows">
-<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<h2>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Run the *.exe file to install.</p></li>
 <li><p>Use recommended settings</p></li>
@@ -426,8 +432,8 @@ document.write(`
 </ul>
 </section>
 </section>
-<section id="notebooks">
-<h2>Notebooks<a class="headerlink" href="#notebooks" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="notebooks">
+<h1>Notebooks<a class="headerlink" href="#notebooks" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>code cells</p></li>
 <li><p>text cells</p></li>
@@ -453,23 +459,14 @@ Example of math typesettings with Latex
 $$ f(x) = a e^{-x^2} $$
 </pre></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">__pycache__</span>             exercse-demo.ipynb      import_demo.py
-basics-2024-04-02.ipynb files-2024-04-12.ipynb  lecture-notes.ipynb
-composers.txt           header.png              newfile.txt
-encryption.py           hello.py                numbers1.txt
-encryption_copy.py      hello.txt               someotherfile.txt
-</pre></div>
-</div>
-</div>
-</div>
-<p><img alt="alt" src="../_images/header.png" /></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="header">
+<h1>Header<a class="headerlink" href="#header" title="Link to this heading">#</a></h1>
+<section id="subheader">
+<h2>Subheader<a class="headerlink" href="#subheader" title="Link to this heading">#</a></h2>
+<p>Example of math typesettings with Latex</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = a e^{-x^2} \]</div>
 </section>
 <section id="basic-datatypes">
 <h2>Basic datatypes<a class="headerlink" href="#basic-datatypes" title="Link to this heading">#</a></h2>
@@ -712,7 +709,7 @@ SyntaxError: unterminated string literal (detected at line 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
     <span class="s2">&quot;Hello</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: unterminated string literal (detected at line 1)
@@ -2399,6 +2396,62 @@ Goodbye
 </div>
 </div>
 </section>
+<section id="reading-csv-files">
+<h2>reading csv files<a class="headerlink" href="#reading-csv-files" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head<span class="w"> </span>salary_data.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>employee_id,salary,position,department,years_of_experience,education_level,location,performance_rating,bonus_amount,hire_date
+1,86282.06,Administrative Officer,Business Development,33,High School Diploma,Suntar,2,3263.29,9/8/2019
+2,59331.72,Mechanical Systems Engineer,Human Resources,36,Master&#39;s Degree,Outapi,4,2484.87,9/11/2017
+3,29768.91,Software Consultant,Support,10,PhD,Sritanjung,4,662.85,9/17/2006
+4,66817.26,Analyst Programmer,Training,10,Master&#39;s Degree,Santa Cruz do Capibaribe,3,2117.47,4/7/2005
+5,147675.03,Analog Circuit Design manager,Services,6,PhD,Liancheng,3,2926.46,10/9/2013
+6,44019.07,Media Manager I,Marketing,35,High School Diploma,Fengshou,3,3850.62,5/17/2016
+7,35532.69,Senior Financial Analyst,Legal,20,Bachelor&#39;s Degree,Strážnice,1,3673.83,11/4/2006
+8,92179.77,Help Desk Technician,Accounting,11,Master&#39;s Degree,Kiełczów,4,3068.94,3/16/2019
+9,144837.35,Food Chemist,Research and Development,46,Bachelor&#39;s Degree,Altamira,5,1752.0,9/24/2003
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salaries</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">csvfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;salary_data.csv&#39;</span><span class="p">)</span>
+<span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">salaries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">salaries</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">salaries</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>87825.78
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">header</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;employee_id,salary,position,department,years_of_experience,education_level,location,performance_rating,bonus_amount,hire_date\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2447,12 +2500,14 @@ Goodbye
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac">Mac</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mac">Mac</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks">Notebooks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#header">Header</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subheader">Subheader</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-datatypes">Basic datatypes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical">Numerical</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
@@ -2468,7 +2523,11 @@ Goodbye
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-csv-files">reading csv files</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
