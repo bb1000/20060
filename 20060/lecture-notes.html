@@ -405,6 +405,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lab-file">the lab file</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-plotting-libs">other plotting libs</a></li>
 </ul>
             </nav>
         </div>
@@ -5759,6 +5760,413 @@ Name: Open, Length: 2517, dtype: float64
 </div>
 </section>
 </section>
+<section id="other-plotting-libs">
+<h2>other plotting libs<a class="headerlink" href="#other-plotting-libs" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>area</th>
+      <th>capital</th>
+      <th>density</th>
+      <th>EU</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Belgium</th>
+      <td>11.5</td>
+      <td>30.510</td>
+      <td>Brussels</td>
+      <td>376.925598</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>France</th>
+      <td>64.5</td>
+      <td>671.308</td>
+      <td>Paris</td>
+      <td>96.081083</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>Germany</th>
+      <td>81.3</td>
+      <td>357.050</td>
+      <td>Berlin</td>
+      <td>227.699202</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>Netherlands</th>
+      <td>16.9</td>
+      <td>41.526</td>
+      <td>Amsterdam</td>
+      <td>406.973944</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>United Kingdom</th>
+      <td>64.9</td>
+      <td>244.820</td>
+      <td>London</td>
+      <td>265.092721</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seaborn</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">countries</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;population&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;EU&#39;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;population&#39;, ylabel=&#39;EU&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/5c152c61f2eb6e13418e65df9de395efd2c8e304f84f0dc695222b19e4e9bfd5.png" src="../_images/5c152c61f2eb6e13418e65df9de395efd2c8e304f84f0dc695222b19e4e9bfd5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>population</th>
+      <th>area</th>
+      <th>density</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>47.820000</td>
+      <td>269.042800</td>
+      <td>274.554510</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>31.488284</td>
+      <td>264.012828</td>
+      <td>124.651971</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>11.500000</td>
+      <td>30.510000</td>
+      <td>96.081083</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>16.900000</td>
+      <td>41.526000</td>
+      <td>227.699202</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>64.500000</td>
+      <td>244.820000</td>
+      <td>265.092721</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>64.900000</td>
+      <td>357.050000</td>
+      <td>376.925598</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>81.300000</td>
+      <td>671.308000</td>
+      <td>406.973944</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Miniproject accounting</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://docs.google.com/spreadsheets/d/1VHv7HPiiC8xOqIP7PFDqSG_8AnGdHvclHED9cfGGNmQ/export?format=csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>kr</th>
+      <th>debit</th>
+      <th>kredit</th>
+      <th>comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2024-04-26</td>
+      <td>100</td>
+      <td>Cash</td>
+      <td>IB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2024-04-26</td>
+      <td>1000</td>
+      <td>Bank</td>
+      <td>IB</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2024-04-26</td>
+      <td>50</td>
+      <td>IB</td>
+      <td>Debts</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2024-04-26</td>
+      <td>100</td>
+      <td>Bank</td>
+      <td>Memberships</td>
+      <td>New member Kate</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2024-04-26</td>
+      <td>25</td>
+      <td>Stationary</td>
+      <td>Cash</td>
+      <td>Stamps and envolopes</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">initial_equity</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">kredit</span><span class="o">==</span><span class="s1">&#39;IB&#39;</span><span class="p">][</span><span class="s1">&#39;kr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">debit</span> <span class="o">==</span> <span class="s1">&#39;IB&#39;</span><span class="p">][</span><span class="s1">&#39;kr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">initial_equity</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1050
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#how much cash do we have?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">debit</span> <span class="o">==</span> <span class="s1">&#39;Cash&#39;</span><span class="p">][</span><span class="s1">&#39;kr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">kredit</span> <span class="o">==</span> <span class="s1">&#39;Cash&#39;</span><span class="p">][</span><span class="s1">&#39;kr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>75
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#how much in the bank?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">debit</span> <span class="o">==</span> <span class="s1">&#39;Bank&#39;</span><span class="p">][</span><span class="s1">&#39;kr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">kredit</span> <span class="o">==</span> <span class="s1">&#39;Bank&#39;</span><span class="p">][</span><span class="s1">&#39;kr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1100
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># what are our asset accounts?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">assets</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">kredit</span> <span class="o">==</span> <span class="s1">&#39;IB&#39;</span><span class="p">][</span><span class="s1">&#39;debit&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liabilities</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">debit</span> <span class="o">==</span> <span class="s1">&#39;IB&#39;</span><span class="p">][</span><span class="s1">&#39;kredit&#39;</span><span class="p">]</span>
+<span class="n">liabilities</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2    Debts
+Name: kredit, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># expenses</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;debit&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Bank&#39;, &#39;Cash&#39;, &#39;IB&#39;, &#39;Stationary&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expenses</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;debit&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">assets</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">liabilities</span><span class="p">)</span> <span class="o">-</span> <span class="p">{</span><span class="s1">&#39;IB&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Stationary&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># incomes</span>
+<span class="n">incomes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;kredit&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">assets</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">liabilities</span><span class="p">)</span> <span class="o">-</span> <span class="p">{</span><span class="s1">&#39;IB&#39;</span><span class="p">}</span>
+<span class="n">incomes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Memberships&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># expense report, summarize incomes and expenses</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -5840,6 +6248,7 @@ Name: Open, Length: 2517, dtype: float64
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lab-file">the lab file</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-plotting-libs">other plotting libs</a></li>
 </ul>
   </nav></div>
 

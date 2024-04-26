@@ -576,11 +576,124 @@ APIKEY = &#39;xxxxxx&#39;
     <span class="k">if</span> <span class="s1">&#39;Search&#39;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
         <span class="c1"># YOUR CODE HERE</span>
         <span class="c1">################</span>
+        <span class="c1">#print(result, len(result), result.keys())</span>
+        <span class="c1">#print(result[&#39;Search&#39;])</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;Search&#39;</span><span class="p">])</span>
+        <span class="c1">#print(df)</span>
+        <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;imdbID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+        <span class="c1">#</span>
+        
     
 <span class="n">get_movies</span><span class="p">(</span><span class="s1">&#39;hamlet&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Type</th>
+      <th>Poster</th>
+    </tr>
+    <tr>
+      <th>imdbID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>tt0040416</th>
+      <td>Hamlet</td>
+      <td>1948</td>
+      <td>movie</td>
+      <td>https://m.media-amazon.com/images/M/MV5BM2Q3MD...</td>
+    </tr>
+    <tr>
+      <th>tt0058126</th>
+      <td>Hamlet</td>
+      <td>1964</td>
+      <td>movie</td>
+      <td>https://m.media-amazon.com/images/M/MV5BZTExMT...</td>
+    </tr>
+    <tr>
+      <th>tt0064400</th>
+      <td>Hamlet</td>
+      <td>1969</td>
+      <td>movie</td>
+      <td>https://m.media-amazon.com/images/M/MV5BZmE5OG...</td>
+    </tr>
+    <tr>
+      <th>tt0093139</th>
+      <td>Hamlet Goes Business</td>
+      <td>1987</td>
+      <td>movie</td>
+      <td>https://m.media-amazon.com/images/M/MV5BY2U1MW...</td>
+    </tr>
+    <tr>
+      <th>tt0099726</th>
+      <td>Hamlet</td>
+      <td>1990</td>
+      <td>movie</td>
+      <td>https://m.media-amazon.com/images/M/MV5BMjI5OT...</td>
+    </tr>
+    <tr>
+      <th>tt0116477</th>
+      <td>Hamlet</td>
+      <td>1996</td>
+      <td>movie</td>
+      <td>https://m.media-amazon.com/images/M/MV5BNGQ0OG...</td>
+    </tr>
+    <tr>
+      <th>tt0171359</th>
+      <td>Hamlet</td>
+      <td>2000</td>
+      <td>movie</td>
+      <td>https://m.media-amazon.com/images/M/MV5BZTA0MW...</td>
+    </tr>
+    <tr>
+      <th>tt1104733</th>
+      <td>Hamlet 2</td>
+      <td>2008</td>
+      <td>movie</td>
+      <td>https://m.media-amazon.com/images/M/MV5BNDQyNj...</td>
+    </tr>
+    <tr>
+      <th>tt1449175</th>
+      <td>Hamlet</td>
+      <td>2009</td>
+      <td>movie</td>
+      <td>https://m.media-amazon.com/images/M/MV5BMTM0MT...</td>
+    </tr>
+    <tr>
+      <th>tt4476736</th>
+      <td>Hamlet</td>
+      <td>2015</td>
+      <td>movie</td>
+      <td>https://m.media-amazon.com/images/M/MV5BOTNlOT...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -625,17 +738,55 @@ APIKEY = &#39;xxxxxx&#39;
     <span class="k">if</span> <span class="n">movies</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># YOUR CODE HERE</span>
         <span class="c1">################</span>
-   
+        
+        <span class="k">for</span> <span class="n">imdb</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">get_movies</span><span class="p">(</span><span class="n">title</span><span class="p">)</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="c1">#print(row)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">])</span> 
+            <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Poster&#39;</span><span class="p">]))</span>
+    
+            
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_posters</span><span class="p">(</span><span class="s1">&#39;gone with the wind&#39;</span><span class="p">)</span>      
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_posters</span><span class="p">(</span><span class="s1">&#39;hamlet&#39;</span><span class="p">)</span>      
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hamlet
+</pre></div>
+</div>
+<div class="output text_html"><img src="https://m.media-amazon.com/images/M/MV5BM2Q3MDk4MzQtYzg1Ny00MGQ2LThjMzgtYWRjY2JlZTRkNjU0XkEyXkFqcGdeQXVyMTUzMDUzNTI3._V1_SX300.jpg"/></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hamlet
+</pre></div>
+</div>
+<div class="output text_html"><img src="https://m.media-amazon.com/images/M/MV5BZTExMTA0MmEtMDFjZi00MTllLTk4ODEtZjcxOWYyNDhkMmU0XkEyXkFqcGdeQXVyNjg3MTIwODI@._V1_SX300.jpg"/></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hamlet
+</pre></div>
+</div>
+<div class="output text_html"><img src="https://m.media-amazon.com/images/M/MV5BZmE5OGQ5MzQtNDliMy00Yzc4LTg2YTEtODJkMmU4Yjk0YjA5XkEyXkFqcGdeQXVyMTMxMTY0OTQ@._V1_SX300.jpg"/></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hamlet Goes Business
+</pre></div>
+</div>
+<div class="output text_html"><img src="https://m.media-amazon.com/images/M/MV5BY2U1MWFkOGUtM2E2Yi00YmMxLWJhNjEtMDY2N2Y3NmYzZjJmXkEyXkFqcGdeQXVyMjI0MjMwMzQ@._V1_SX300.jpg"/></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hamlet
+</pre></div>
+</div>
+<div class="output text_html"><img src="https://m.media-amazon.com/images/M/MV5BMjI5OTgwNTc3M15BMl5BanBnXkFtZTgwNDY1NTk4NjE@._V1_SX300.jpg"/></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hamlet
+</pre></div>
+</div>
+<div class="output text_html"><img src="https://m.media-amazon.com/images/M/MV5BNGQ0OGUyMTctNzk4ZS00YmY5LTlmNWYtMWIyZWYwZjRmOWIzXkEyXkFqcGdeQXVyMTU3NDU4MDg2._V1_SX300.jpg"/></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hamlet
+</pre></div>
+</div>
+<div class="output text_html"><img src="https://m.media-amazon.com/images/M/MV5BZTA0MWFhY2MtMWEwMS00OWJlLWJlNzEtZGRjOTg2YzRlNWUwXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"/></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hamlet 2
+</pre></div>
+</div>
+<div class="output text_html"><img src="https://m.media-amazon.com/images/M/MV5BNDQyNjA5NzExMF5BMl5BanBnXkFtZTcwODIyMjAyNw@@._V1_SX300.jpg"/></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hamlet
+</pre></div>
+</div>
+<div class="output text_html"><img src="https://m.media-amazon.com/images/M/MV5BMTM0MTU5ODY3OV5BMl5BanBnXkFtZTcwNzg5NzAyMw@@._V1_SX300.jpg"/></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hamlet
+</pre></div>
+</div>
+<div class="output text_html"><img src="https://m.media-amazon.com/images/M/MV5BOTNlOTc4NjYtODVmNy00ZTAzLWJjYjUtNzJlYzkzZjgyMDA2XkEyXkFqcGdeQXVyMTUyNjc3NDQ4._V1_SX300.jpg"/></div></div>
 </div>
 </section>
 </section>
