@@ -413,6 +413,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control">Version control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#include-changes-in-main-master">include changes in main/master</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -7152,6 +7156,7 @@ test_leap_param.py::test_leap_year[1996-True] <span class=" -Color -Color-Green"
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">sequence</span><span class="p">[:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">sequence</span><span class="p">[:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">sequence</span><span class="p">[:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
         
     
@@ -7163,21 +7168,668 @@ test_leap_param.py::test_leap_year[1996-True] <span class=" -Color -Color-Green"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2]
 2.0
+2.0
 [2, 6]
+4.0
 4.0
 [2, 6, 10]
 6.0
+6.0
 [2, 6, 10, 8]
+6.5
 6.5
 [2, 6, 10, 8, 11]
 7.4
+7.4
 [2, 6, 10, 8, 11, 10]
+7.833333333333333
 7.83
 None
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="version-control">
+<h2>Version control<a class="headerlink" href="#version-control" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pwd
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/c20060/bb1000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span><span class="w"> </span>proj
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pwd
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/c20060/bb1000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> proj
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/c20060/bb1000/proj
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/c20060/bb1000/proj&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Blue">__pycache__</span>/     savings.py       test_savings.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch master
+nothing to commit, working tree clean
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">commit ebb99cde82f59e9ef9b77d1c667875e01ce49fa7 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">)</span>
+Author: Olav Vahtras &lt;vahtras@kth.se&gt;
+Date:   Tue May 14 09:56:47 2024 +0200
+
+    Ignore pyc and notebook checkpoint files
+
+<span class=" -Color -Color-Yellow">commit bb5885b6ec73e2d190ee0e2b2a9812d96dfa5b49</span>
+Author: Olav Vahtras &lt;vahtras@kth.se&gt;
+Date:   Tue May 14 09:44:45 2024 +0200
+
+    Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">ebb99cd (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">)</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	<span class=" -Color -Color-Red">modified:   savings.py</span>
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>diff
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">diff --git a/savings.py b/savings.py</span>
+<span class=" -Color -Color-Bold">index 3288ee4..52afdc7 100644</span>
+<span class=" -Color -Color-Bold">--- a/savings.py</span>
+<span class=" -Color -Color-Bold">+++ b/savings.py</span>
+<span class=" -Color -Color-Cyan">@@ -1,3 +1,4 @@</span>
+<span class=" -Color -Color-Green">+import sys</span>
+ 
+ def calculate(deposit, years, interest):
+     total = 0
+<span class=" -Color -Color-Cyan">@@ -5,4 +6,11 @@</span> def calculate(deposit, years, interest):
+         total += deposit
+         total *= (1 + interest)
+ 
+<span class=" -Color -Color-Red">-    return total</span>
+\ No newline at end of file
+<span class=" -Color -Color-Green">+    return total</span>
+<span class=" -Color -Color-Green">+</span>
+<span class=" -Color -Color-Green">+if __name__ == &quot;__main__&quot;:  # skip during import</span>
+<span class=" -Color -Color-Green">+    deposit = float(sys.argv[1])</span>
+<span class=" -Color -Color-Green">+    years = int(sys.argv[2])</span>
+<span class=" -Color -Color-Green">+    interest = float(sys.argv[3])</span>
+<span class=" -Color -Color-Green">+    total_savings = calculate(deposit, years, interest)</span>
+<span class=" -Color -Color-Green">+    print(f&quot;Total savings after {years} years: {total_savings}&quot;)</span>
+\ No newline at end of file
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>savings.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch master
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+	<span class=" -Color -Color-Green">modified:   savings.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>diff
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>diff<span class="w"> </span>--cached
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">diff --git a/savings.py b/savings.py</span>
+<span class=" -Color -Color-Bold">index 3288ee4..52afdc7 100644</span>
+<span class=" -Color -Color-Bold">--- a/savings.py</span>
+<span class=" -Color -Color-Bold">+++ b/savings.py</span>
+<span class=" -Color -Color-Cyan">@@ -1,3 +1,4 @@</span>
+<span class=" -Color -Color-Green">+import sys</span>
+ 
+ def calculate(deposit, years, interest):
+     total = 0
+<span class=" -Color -Color-Cyan">@@ -5,4 +6,11 @@</span> def calculate(deposit, years, interest):
+         total += deposit
+         total *= (1 + interest)
+ 
+<span class=" -Color -Color-Red">-    return total</span>
+\ No newline at end of file
+<span class=" -Color -Color-Green">+    return total</span>
+<span class=" -Color -Color-Green">+</span>
+<span class=" -Color -Color-Green">+if __name__ == &quot;__main__&quot;:  # skip during import</span>
+<span class=" -Color -Color-Green">+    deposit = float(sys.argv[1])</span>
+<span class=" -Color -Color-Green">+    years = int(sys.argv[2])</span>
+<span class=" -Color -Color-Green">+    interest = float(sys.argv[3])</span>
+<span class=" -Color -Color-Green">+    total_savings = calculate(deposit, years, interest)</span>
+<span class=" -Color -Color-Green">+    print(f&quot;Total savings after {years} years: {total_savings}&quot;)</span>
+\ No newline at end of file
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Accept command-line input&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[master 02fc11d] Accept command-line input
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch master
+nothing to commit, working tree clean
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">02fc11d (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">)</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>checkout<span class="w"> </span>ebb99cd
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: switching to &#39;ebb99cd&#39;.
+
+You are in &#39;detached HEAD&#39; state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c &lt;new-branch-name&gt;
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at ebb99cd Ignore pyc and notebook checkpoint files
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">02fc11d (</span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">)</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow">)</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>switch<span class="w"> </span>master
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Previous HEAD position was ebb99cd Ignore pyc and notebook checkpoint files
+Switched to branch &#39;master&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">02fc11d (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">)</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#new branch</span>
+<span class="o">!</span>git<span class="w"> </span>branch<span class="w"> </span>check-arguments
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">02fc11d (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">check-arguments</span><span class=" -Color -Color-Yellow">)</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>switch<span class="w"> </span>check-arguments
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Switched to branch &#39;check-arguments&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">02fc11d (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">check-arguments</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">)</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>diff
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">diff --git a/savings.py b/savings.py</span>
+<span class=" -Color -Color-Bold">index 52afdc7..aed858d 100644</span>
+<span class=" -Color -Color-Bold">--- a/savings.py</span>
+<span class=" -Color -Color-Bold">+++ b/savings.py</span>
+<span class=" -Color -Color-Cyan">@@ -9,8 +9,13 @@</span> def calculate(deposit, years, interest):
+     return total
+ 
+ if __name__ == &quot;__main__&quot;:  # skip during import
+<span class=" -Color -Color-Red">-    deposit = float(sys.argv[1])</span>
+<span class=" -Color -Color-Red">-    years = int(sys.argv[2])</span>
+<span class=" -Color -Color-Red">-    interest = float(sys.argv[3])</span>
+<span class=" -Color -Color-Green">+    if len(sys.argv) &gt;= 4:</span>
+<span class=" -Color -Color-Green">+        deposit = float(sys.argv[1])</span>
+<span class=" -Color -Color-Green">+        years = int(sys.argv[2])</span>
+<span class=" -Color -Color-Green">+        interest = float(sys.argv[3])</span>
+<span class=" -Color -Color-Green">+    else:</span>
+<span class=" -Color -Color-Green">+        print(f&quot;Usage: {sys.argv[0]} deposit years interest&quot;)</span>
+<span class=" -Color -Color-Green">+        exit()</span>
+<span class=" -Color -Color-Green">+</span><span class=" -Color -Color-BGRed">        </span>
+     total_savings = calculate(deposit, years, interest)
+     print(f&quot;Total savings after {years} years: {total_savings}&quot;)
+\ No newline at end of file
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>add<span class="w"> </span>savings.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Check number of command-line arguments&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[check-arguments a95f777] Check number of command-line arguments
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">a95f777 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">check-arguments</span><span class=" -Color -Color-Yellow">)</span> Check number of command-line arguments
+<span class=" -Color -Color-Yellow">02fc11d (</span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">)</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<section id="include-changes-in-main-master">
+<h3>include changes in main/master<a class="headerlink" href="#include-changes-in-main-master" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>switch back to master</p></li>
+<li><p>merge development branch to master</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>switch<span class="w"> </span>master
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Switched to branch &#39;master&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">a95f777 (</span><span class=" -Color -Color-Bold -Color-Bold-Green">check-arguments</span><span class=" -Color -Color-Yellow">)</span> Check number of command-line arguments
+<span class=" -Color -Color-Yellow">02fc11d (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">)</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>merge<span class="w"> </span>check-arguments<span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Updating 02fc11d..a95f777
+Fast-forward
+ savings.py | 11 <span class=" -Color -Color-Green">++++++++</span><span class=" -Color -Color-Red">---</span>
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">a95f777 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">check-arguments</span><span class=" -Color -Color-Yellow">)</span> Check number of command-line arguments
+<span class=" -Color -Color-Yellow">02fc11d</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>On branch master
+nothing to commit, working tree clean
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>kth-github<span class="w"> </span>git@gits-15.sys.kth.se:BB1000/savings-calculator.git
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>push<span class="w"> </span>kth-github<span class="w"> </span>master
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The authenticity of host &#39;gits-15.sys.kth.se (130.237.48.33)&#39; can&#39;t be established.
+ECDSA key fingerprint is SHA256:OmuyB64vnycQufBPs7zDXyHYpCi89jTrHru802Q+4/E.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? ^C
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">a95f777 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Red">kth-github/master</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">check-arguments</span><span class=" -Color -Color-Yellow">)</span> Check number of command-line arguments
+<span class=" -Color -Color-Yellow">02fc11d</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>fetch<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter passphrase for key &#39;/Users/c20060/.ssh/id_ed25519&#39;: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">95ce68e (</span><span class=" -Color -Color-Bold -Color-Bold-Red">kth-github/master</span><span class=" -Color -Color-Yellow">)</span> Round total to two decimals
+<span class=" -Color -Color-Yellow">a95f777 (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Green">check-arguments</span><span class=" -Color -Color-Yellow">)</span> Check number of command-line arguments
+<span class=" -Color -Color-Yellow">02fc11d</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>merge<span class="w"> </span>kth-github/master
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Updating a95f777..95ce68e
+Fast-forward
+ savings.py | 3 <span class=" -Color -Color-Green">++</span><span class=" -Color -Color-Red">-</span>
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--all
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">95ce68e (</span><span class=" -Color -Color-Bold -Color-Bold-Cyan">HEAD</span><span class=" -Color -Color-Yellow"> -&gt; </span><span class=" -Color -Color-Bold -Color-Bold-Green">master</span><span class=" -Color -Color-Yellow">, </span><span class=" -Color -Color-Bold -Color-Bold-Red">kth-github/master</span><span class=" -Color -Color-Yellow">)</span> Round total to two decimals
+<span class=" -Color -Color-Yellow">a95f777 (</span><span class=" -Color -Color-Bold -Color-Bold-Green">check-arguments</span><span class=" -Color -Color-Yellow">)</span> Check number of command-line arguments
+<span class=" -Color -Color-Yellow">02fc11d</span> Accept command-line input
+<span class=" -Color -Color-Yellow">ebb99cd</span> Ignore pyc and notebook checkpoint files
+<span class=" -Color -Color-Yellow">bb5885b</span> Initial commit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># git pull does git fetch and git merge in one step</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -7268,6 +7920,10 @@ None
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control">Version control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#include-changes-in-main-master">include changes in main/master</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
