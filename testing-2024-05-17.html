@@ -712,9 +712,8 @@ test_running_mean.py::test_running_mean[input_argument0-expected_return0]
 <span class=" -Color -Color-Bold -Color-Bold-Red">_____________ test_running_mean[input_argument0-expected_return0] ______________</span>
 
 input_argument = [1, 2, 3], expected_return = [1, 1.5, 2]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    <span class=" -Color -Color-White">@pytest</span>.mark.parametrize(<span class=" -Color -Color-Yellow">&quot;input_argument, expected_return&quot;</span>, [
+
+    <span class=" -Color -Color-White">@pytest</span>.mark.parametrize(<span class=" -Color -Color-Yellow">&quot;input_argument, expected_return&quot;</span>, [
         ([1, 2, 3], [1, 1.5, 2]),
         ([2, 6, 10, 8, 11, 10],
          [2.0, 4.0, 6.0, 6.5, 7.4, 7.83]),
