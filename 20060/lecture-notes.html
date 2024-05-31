@@ -424,7 +424,10 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration">Iteration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postmortem-debugging-interactive-mode">Postmortem debugging interactive mode</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -8224,6 +8227,25 @@ Continue
 </div>
 </div>
 </div>
+<section id="postmortem-debugging-interactive-mode">
+<h3>Postmortem debugging interactive mode<a class="headerlink" href="#postmortem-debugging-interactive-mode" title="Link to this heading">#</a></h3>
+<p>Running a Python script with ‘-i’ option will drop control to interactive mode after the lines have been executed. If there is an exception along the way one can call the pdb post-morden function pm()</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">python</span> <span class="o">-</span><span class="n">i</span> <span class="n">encryption</span><span class="o">.</span><span class="n">py</span> <span class="n">abba</span> <span class="n">x</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;/Users/c20060/bb1000/encryption.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">27</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">shift</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="o">^^^^^^^^^^^^^^^^</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">literal</span> <span class="k">for</span> <span class="nb">int</span><span class="p">()</span> <span class="k">with</span> <span class="n">base</span> <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>The execution stops at the exception but we may now invoke the debugger which loads at the problematic line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="o">.</span><span class="n">pm</span><span class="p">()</span>
+<span class="go">&gt; /Users/c20060/bb1000/encryption.py(27)&lt;module&gt;()</span>
+<span class="go">-&gt; shift = int(sys.argv[2])</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -8325,7 +8347,10 @@ Continue
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteration">Iteration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exceptions">Exceptions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postmortem-debugging-interactive-mode">Postmortem debugging interactive mode</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
